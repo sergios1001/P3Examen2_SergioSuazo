@@ -7,6 +7,7 @@
 #include "Pila.h"
 #include "Node.h"
 #include "Operador.h"
+#include "Archivo.h"
 
 
 using namespace std;
@@ -30,9 +31,13 @@ void printMat(int** matriz,int size)
 }
 
 vector<Matriz*> matrices;
+Archivo* miMatriz = new Archivo("Matrices.txt");
 
 int main(int argc, char** argv) {
 	string resp="";
+	miMatriz->abrirLectura();
+	matrices= miMatriz->leerMatrices();
+	miMatriz->cerrarLectura();
 	while(resp!="exit")
 	{
 		cout<<">>";
@@ -54,7 +59,13 @@ int main(int argc, char** argv) {
 			raiz=sqrt(size);
 			if(raiz*raiz==size)
 			{
-				matrices.push_back(new Matriz(numMat,resp[0]));
+				Matriz* m=new Matriz(numMat,resp[0]);
+				int** matriz=m->getMat();
+				printMat(matriz,raiz);
+				matrices.push_back(m);
+				miMatriz->abrirEscritura(1);
+				miMatriz->guardarMatriz(m);
+				miMatriz->cerrarEscritura();
 					
 			}
 			else
@@ -65,6 +76,13 @@ int main(int argc, char** argv) {
 		else if(resp[1]=='+'||resp[1]=='-'||resp[1]=='*')
 		{
 			
+			/*Pile* pila=new Pila();
+			for(int i=1;i<resp.size();i++)
+			{
+				
+				Node nodo= new Node()
+				pila->push()
+			}*/
 		}
 	}
 	

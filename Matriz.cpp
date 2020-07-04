@@ -32,16 +32,6 @@ Matriz::Matriz(string num,char _id)
 		}
 	}
 	
-	for(int i=0;i<size;i++)
-	{
-		cout<<"| ";
-		for(int j=0;j<size;j++)
-		{
-						
-			cout<<mat[i][j]<<" ";
-		}
-		cout<<"|"<<endl;
-	}
 }
 
 char Matriz::getID()

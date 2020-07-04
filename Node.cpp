@@ -4,6 +4,11 @@ Node::Node()
 {
 }
 
+Node::Node(Object* objeto)
+{
+	data=objeto;
+}
+
 Node* Node::getNext()
 {
 	return next_node;
