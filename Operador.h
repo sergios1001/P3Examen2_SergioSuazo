@@ -10,11 +10,11 @@ class Operador : public Object
 	public:
 		Operador();
 		
-		Operador(string op);
+		Operador(char op);
 		
 		~Operador();
 	private:
-		string operador;
+		char operador;
 		
 };
 

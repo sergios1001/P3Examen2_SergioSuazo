@@ -6,9 +6,10 @@ class Node
 {
 	public:
 		Node();
-		
+		Node(Object* objeto);
 		Node* getNext();
 		void setNext(Node*);
+		Object* getData();
 		
 		~Node();
 	private:

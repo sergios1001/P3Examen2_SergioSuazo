@@ -4,7 +4,7 @@ Operador::Operador()
 {
 }
 
-Operador::Operador(string op)
+Operador::Operador(char op)
 {
 	operador=op;
 }

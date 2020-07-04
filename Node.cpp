@@ -19,6 +19,11 @@ void Node::setNext(Node* nodo)
 	next_node=nodo;
 }
 
+Object* Node::getData()
+{
+	return data;
+}
+
 Node::~Node()
 {
 }

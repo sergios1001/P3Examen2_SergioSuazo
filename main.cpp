@@ -32,6 +32,7 @@ void printMat(int** matriz,int size)
 
 vector<Matriz*> matrices;
 Archivo* miMatriz = new Archivo("Matrices.txt");
+Pila* pila;
 
 int main(int argc, char** argv) {
 	string resp="";
@@ -75,14 +76,34 @@ int main(int argc, char** argv) {
 		}
 		else if(resp[1]=='+'||resp[1]=='-'||resp[1]=='*')
 		{
-			
-			/*Pile* pila=new Pila();
-			for(int i=1;i<resp.size();i++)
+			for(int j=resp.size();j>0;j--)
 			{
+				if(j%2==0)
+				{
+					for(int i=0;i<matrices.size();i++)
+					{
+						if(resp[j]==matrices[i]->getID())
+						{
+							pila->push(new Node(matrices[i]));
+							break;
+						}
+					}
+				}
+				else
+				{
+					pila->push(new Node(new Operador(resp[j])));
+				}
+			}
+			
+			for(int i=0;i<resp.size();i++)
+			{
+				Node* current_node=pila->pop();
+				Object* datos=current_node->getData();
 				
-				Node nodo= new Node()
-				pila->push()
-			}*/
+				
+			}
+			
+
 		}
 	}
 	
