@@ -13,6 +13,22 @@ using namespace std;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
+
+
+void printMat(int** matriz,int size)
+{
+	for(int i=0;i<size;i++)
+	{
+		cout<<"| ";
+		for(int j=0;j<size;j++)
+		{
+						
+			cout<<matriz[i][j]<<" ";
+		}
+		cout<<"|"<<endl;
+	}
+}
+
 vector<Matriz*> matrices;
 
 int main(int argc, char** argv) {
@@ -25,48 +41,28 @@ int main(int argc, char** argv) {
 		if(resp[1]=='=')
 		{
 			int size=0;
+			string numMat="";
 			for(int i=0;i<resp.size();i++)
 			{
 				if(resp[i]=='0'||resp[i]=='1'||resp[i]=='2'||resp[i]=='3'||resp[i]=='4'||resp[i]=='5'||resp[i]=='6'||resp[i]=='7'||resp[i]=='8'||resp[i]=='9')
 				{
 					size++;
+					numMat+=resp[i];
 				}
 			}
 			int raiz;
 			raiz=sqrt(size);
 			if(raiz*raiz==size)
 			{
-				
-				int** matriz=NULL;;
-				matriz=new int*[raiz];
-				for(int i=0;i<raiz;i++)
-				{
-					matriz[i]=new int[raiz];
-				}
-				int k=3;
-				for(int i=0;i<raiz ;i++)
-				{
-					for(int j=0;j<raiz;i++)
-					{
-						for(k;k<resp.size();k++)
-						{
-							if(resp[k]!=',')
-							{
-								matriz[i][j]=(int)resp[k];
-								k++;
-								break;
-							}
-						}
-					}
-				}
-				matrices.push_back(new Matriz(matriz,resp[0]));
+				matrices.push_back(new Matriz(numMat,resp[0]));
+					
 			}
 			else
 			{
 				cout<<"la matriz no es cuadrada"<<endl;
 			}
 		}
-		else
+		else if(resp[1]=='+'||resp[1]=='-'||resp[1]=='*')
 		{
 			
 		}

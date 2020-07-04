@@ -6,11 +6,12 @@ using namespace std;
 
 #include "Object.h"
 
+
 class Matriz : public Object
 {
 	public:
 		Matriz();
-		Matriz(int**,char);
+		Matriz(string,char);
 		
 		char getID();
 		int** getMat();
@@ -19,6 +20,8 @@ class Matriz : public Object
 	private:
 		char id;
 		int** mat;
+		string numeros;
+		friend class Archivo;
 };
 
 #endif
